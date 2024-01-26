@@ -19,7 +19,7 @@ while True:
             index = int(input("Choose the index you want to edit: "))
             if 1 <= index <= len(todos):
                 edited_task = input("Enter the edited task: ")
-                todos[index - 1] = edited_task + '\n'  # Update the todo in the list
+                todos[index - 1] = edited_task + '\n'
                 print("Task edited successfully.")
             else:
                 print("Invalid index. Please choose a valid index.")

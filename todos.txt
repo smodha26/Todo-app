@@ -1,7 +1,7 @@
-1 - sit
-2 - throw
-3 - sit
-4 - throw
-5 - clean
-6 - eat
-7 - test
+run
+sit
+throw
+clean
+eat
+test
+sleep

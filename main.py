@@ -48,7 +48,7 @@ while True:
         print("Saving changes and exiting...")
         with open('todos.txt', 'w') as file:
             for index, todo in enumerate(todos, 1):
-                file.write(f"{index} - {todo}")
+                file.write(f"{todo}")
         print("Bye bye!")
         break
 

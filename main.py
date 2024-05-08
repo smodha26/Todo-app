@@ -1,6 +1,12 @@
+import time
+
 # Open and read the file at the beginning
 with open('todos.txt', 'r') as read_file:
     todos = read_file.readlines()
+
+# Print current time
+now = time.strftime("%b %d, %Y %H:%M:%S")
+print("Current time : " + now)
 
 while True:
     user_input = input("Type add, edit, show, delete or exit: ").strip()

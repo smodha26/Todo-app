@@ -1,60 +1,55 @@
-import time
+import functions
 
-# Open and read the file at the beginning
-with open('todos.txt', 'r') as read_file:
-    todos = read_file.readlines()
+# Initialize todos
+todos = functions.read_todos()
 
 # Print current time
-now = time.strftime("%b %d, %Y %H:%M:%S")
+now = functions.get_current_time()
 print("Current time : " + now)
 
 while True:
     user_input = input("Type add, edit, show, delete or exit: ").strip()
 
     if user_input == "add":
-        user_input = input("Add your todo:") + "\n"
-        todos.append(user_input)
+        user_input = input("Add your todo:").strip()
+        todos = functions.add_task(todos, user_input)
         print("Task added successfully.")
 
     elif user_input == "edit":
         if len(todos) == 0:
             print("The todos list is empty")
         else:
-            for i, item in enumerate(todos, 1):
-                print(f"{i} : {item.strip()}")
-            index = int(input("Choose the index you want to edit: "))
-            if 1 <= index <= len(todos):
-                edited_task = input("Enter the edited task: ")
-                todos[index - 1] = edited_task + '\n'
+            print(functions.show_tasks(todos))
+            try:
+                index = int(input("Choose the index you want to edit: "))
+                edited_task = input("Enter the edited task: ").strip()
+                todos = functions.edit_task(todos, index, edited_task)
                 print("Task edited successfully.")
-            else:
-                print("Invalid index. Please choose a valid index.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+            except IndexError as e:
+                print(e)
 
     elif user_input == "show":
-        if len(todos) == 0:
-            print("The todos list is empty")
-        else:
-            for index, item in enumerate(todos, 1):
-                print(f"{index} : {item.strip()}")
+        print(functions.show_tasks(todos))
 
     elif user_input == "delete":
         if len(todos) == 0:
             print("The todos list is empty")
         else:
-            for i, item in enumerate(todos, 1):
-                print(f"{i} : {item.strip()}")
-            index = int(input("Choose the index you want to delete: "))
-            if 1 <= index <= len(todos):
-                del todos[index - 1]
+            print(functions.show_tasks(todos))
+            try:
+                index = int(input("Choose the index you want to delete: "))
+                todos = functions.delete_task(todos, index)
                 print("Task deleted successfully.")
-            else:
-                print("Invalid index. Please choose a valid index.")
+            except ValueError:
+                print("Invalid input. Please enter a number.")
+            except IndexError as e:
+                print(e)
 
     elif user_input == "exit":
         print("Saving changes and exiting...")
-        with open('todos.txt', 'w') as file:
-            for index, todo in enumerate(todos, 1):
-                file.write(f"{todo}")
+        functions.write_todos(todos)
         print("Bye bye!")
         break
 

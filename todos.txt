@@ -1,7 +1,5 @@
-run
 sit
-throw
-clean
 eat
 test
 sleep
+work

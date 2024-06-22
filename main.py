@@ -1,7 +1,7 @@
 import functions
 
 # Initialize todos
-todos = functions.read_todos()
+todos = functions.get_todos()
 
 # Print current time
 now = functions.get_current_time()

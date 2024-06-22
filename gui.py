@@ -2,7 +2,7 @@ import PySimpleGUI as sg  # Assuming you meant PySimpleGUI
 import functions
 
 # Load initial todos
-todos = functions.read_todos()
+todos = functions.get_todos()
 
 # Define the layout of the window
 layout = [

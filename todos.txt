@@ -1,5 +1,6 @@
-sit
+shower
+gym
 eat
-test
+run
 sleep
-work
+protein shake

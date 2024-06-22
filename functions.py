@@ -1,7 +1,7 @@
 import time
 
 
-def read_todos(file_path='todos.txt'):
+def get_todos(file_path='todos.txt'):
     """Read todos from the file."""
     with open(file_path, 'r') as file:
         todos = file.readlines()
